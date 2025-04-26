@@ -1,5 +1,5 @@
 # Imagen de referencia de docker que usaremos 
-FROM node:23
+FROM node:23-alpine.20
 
 # Crear carpeta en docker donde se alojara nuestro container
 RUN mkdir -p /home/app
