@@ -1,0 +1,281 @@
+/* Contenedor principal */
+
+#main-container-calendar{
+  flex-direction: column;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+/* Controles del calendario */
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Botones de vista */
+.view-buttons {
+  display: flex;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.view-buttons button {
+  padding: 8px 16px;
+  background-color: #f0fdfa;
+  border: 1px solid #38b2ac;
+  border-radius: 6px;
+  color: #38b2ac;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.view-buttons button:hover {
+  background-color: #ccfbf1;
+}
+
+.view-buttons button.active {
+  background-color: #38b2ac;
+  color: white;
+}
+
+/* Estilos del calendario */
+.fc {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0 20px 20px 20px;
+  background-color: white;
+}
+
+/* Eventos */
+.fc .fc-event {
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 4px 6px !important;
+  margin: 2px 4px !important;
+  font-size: 0.85rem !important;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.fc .fc-event:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Categorías de eventos */
+.fc .fc-event.vacuna {
+  background-color: #a5f3fc !important;
+  color: #0e7490 !important;
+  border-left: 4px solid #06b6d4 !important;
+}
+
+.fc .fc-event.emergencia {
+  background-color: #fecaca !important;
+  color: #991b1b !important;
+  border-left: 4px solid #ef4444 !important;
+}
+
+.fc .fc-event.consulta {
+  background-color: #c7d2fe !important;
+  color: #4c1d95 !important;
+  border-left: 4px solid #6366f1 !important;
+}
+
+/* Modal personalizado */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #38b2ac;
+  color: white;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Formularios */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Footer del modal */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.modal-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-btn-close {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+.modal-btn-close:hover {
+  background-color: #cbd5e1;
+}
+
+.modal-btn-delete {
+  background-color: #fecaca;
+  color: #991b1b;
+}
+
+.modal-btn-delete:hover {
+  background-color: #fca5a5;
+}
+
+.modal-btn-confirm {
+  background-color: #38b2ac;
+  color: white;
+}
+
+.modal-btn-confirm:hover {
+  background-color: #2d968f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .view-buttons {
+    flex-wrap: wrap;
+    padding: 8px;
+  }
+  
+  .view-buttons button {
+    flex: 1 0 45%;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .fc {
+    padding: 0 8px 8px 8px;
+  }
+  
+  .modal-content {
+    width: 95%;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal-footer {
+    flex-wrap: wrap;
+  }
+  
+  .modal-footer .modal-btn {
+    flex: 1 0 100%;
+  }
+}
