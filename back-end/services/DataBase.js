@@ -10,10 +10,10 @@ class DataBase {
     // Create conection function
     createConnection() {
         return mysql.createConnection({
-            host: process.env.HOST_DB || "localhost",
+            host: process.env.HOST_DB || "database",
             database: process.env.NAME_DB || "pets_heaven",
             user: process.env.USER_DB || "root",
-            password:process.env.PASSWORD_DB || "",
+            password:process.env.PASSWORD_DB || "123",
             port: process.env.PORT_DB || 3306
         })
     }
