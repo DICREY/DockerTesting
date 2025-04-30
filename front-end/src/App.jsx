@@ -26,12 +26,10 @@ import { MainAdmin } from './Componentes/InterfazAdmin/MainAdmin'
 //import Crud personal
 import { ConfiguracionUsuarioCrud } from "./Componentes/InterfazAdmin/CrudPersonal/ConfiguracionUsuarioCrud"
 
-
-
 // Main Component
 export default function App () {
   const [userSelect,setUserSelect] = useState()
-  const URL = "http://backend"
+  const URL = "http://localhost:3000"
   
   // Route types
   const PrivateRoute = ({ children }) => {

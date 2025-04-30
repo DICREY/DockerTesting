@@ -1,0 +1,39 @@
+services:
+  database:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - pets-data:/var/lib/mysql
+    environment:
+      - MARIADB_ROOT=root
+      - MARIADB_ROOT_PASSWORD=123
+    restart: always
+
+  frontend:
+    image: node
+    build:
+      context: ./front-end
+      dockerfile: DockerFile    
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    volumes:
+      - pets-front:/front-end
+    restart: always
+    
+  backend:
+    image: node
+    build:
+      context: ./back-end
+      dockerfile: DockerFile
+    ports:
+      - "3000:3000"
+    volumes:
+      - pets-back:/back-end
+    restart: always
+volumes:
+  pets-data:
+  pets-back:
+  pets-front:
